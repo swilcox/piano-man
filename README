@@ -1,6 +1,8 @@
 piano-man
 =========
 
+note: this is a fork (by swilcox) of the original...
+
 piano-man is a project management system written with Django.
 
 All icons used are from the awesome FamFamFam Silk icon set.
