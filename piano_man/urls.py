@@ -16,9 +16,9 @@ repo_urls = patterns('',
 
 
 urlpatterns = patterns('',
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'django_vcs.views.repo_list', name='repo_list'),
     url(r'^(?P<slug>[\w-]+)/', include(repo_urls)),
-    url(r'^admin/', include(admin.site.urls)),
 )
 
 if settings.DEBUG:
