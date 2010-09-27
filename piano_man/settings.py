@@ -100,6 +100,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 #    'debug_toolbar',
     'django_vcs',
+    'wikis',
+    'projects',
     'tickets',
     'timeline',
     'backstage',
