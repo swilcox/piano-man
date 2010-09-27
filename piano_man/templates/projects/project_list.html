@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Project List{% endblock %}
+
+{% block page_title %}Projects{% endblock %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>VCS</th>
+            <th>Last Commit Date</th>
+            <th>Last Commit Message</th>
+        </tr>
+        {% for project in projects %}
+            <tr>
+                <td>
+                    <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
+                </td>
+                <td>{{ project.repo.get_repository_type_display }}</td>
+                {% with project.repo.get_recent_commits.0 as commit %}
+                    <td>{{ commit.time }}</td>
+                    <td>{{ commit.message }}</td>
+                {% endwith %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
