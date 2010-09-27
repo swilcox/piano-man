@@ -3,3 +3,5 @@ dev.db
 *.swp
 *.project
 .pydevproject
+*~
+.idea
