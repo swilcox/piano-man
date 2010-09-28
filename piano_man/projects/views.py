@@ -78,3 +78,6 @@ def commit_detail(request, projectslug, commit_id):
         'django_vcs/%s/commit_detail.html' % repo.name,
         'django_vcs/commit_detail.html',
     ], {'project':project, 'repo': repo, 'commit': commit}, context_instance=RequestContext(request))
+
+def wiki_page(request, projectslug, path, **kwargs):
+    return render_to_response('wikis/wiki_page.html', {'wp':{}}, context_instance=RequestContext(request))

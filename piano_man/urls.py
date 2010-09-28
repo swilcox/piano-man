@@ -20,6 +20,7 @@ project_urls = patterns('',
     url(r'^tickets/', include(ticket_urls)),
     url(r'^commit/(?P<commit_id>.*)/$', 'projects.views.commit_detail', name='commit_detail'),
     url(r'^browser/(?P<path>.*)$', 'projects.views.code_browser', name='code_browser'),
+    url(r'^wiki/(?P<path>.*)$', 'projects.views.wiki_page', name='wiki_page'),
     url(r'^$','projects.views.project',name='project'),
 )
 
