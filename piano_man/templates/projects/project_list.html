@@ -15,7 +15,7 @@
         {% for project in projects %}
             <tr>
                 <td>
-                    <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
+                    <a href="{% url project projectslug=project.slug %}">{{ project.name }}</a>
                 </td>
                 <td>{{ project.repo.get_repository_type_display }}</td>
                 {% with project.repo.get_recent_commits.0 as commit %}

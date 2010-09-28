@@ -42,7 +42,7 @@
             <ul>
                 {% for option in options %}
                     <li>
-                        <a href="{% url ticket_option_chart slug=project.slug option=option.name %}">
+                        <a href="{% url ticket_option_chart projectslug=project.slug option=option.name %}">
                             {{ option.name }}
                         </a>
                     </li>

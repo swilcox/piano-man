@@ -43,7 +43,7 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        <form action="{% url ticket_new_attachment slug=project.slug ticket_id=ticket.id %}" method="get" class="add-attachment">
+        <form action="{% url ticket_new_attachment projectslug=project.slug ticket_id=ticket.id %}" method="get" class="add-attachment">
             <input type="submit" value="Attach file" />
         </form>
     </div>

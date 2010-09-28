@@ -12,5 +12,5 @@ ticket_urls = patterns('tickets.views',
 )
 
 urlpatterns = patterns('',
-    (r'^(?P<slug>[\w-]+)/', include(ticket_urls)),
+    (r'^(?P<projectslug>[\w-]+)/', include(ticket_urls)),
 )

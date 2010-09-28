@@ -14,7 +14,7 @@
     {% for option, results in data.iteritems %}
         <div class="grid_4">
             <h4>
-                <a href="{% url ticket_option_chart slug=project.slug option=option %}">
+                <a href="{% url ticket_option_chart projectslug=project.slug option=option %}">
                     Tickets by {{ option }}
                 </a>
             </h4>

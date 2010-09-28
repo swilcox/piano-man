@@ -25,7 +25,7 @@ class Ticket(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('ticket_detail', (), {'slug': self.project.slug, 'ticket_id': self.pk})
+        return ('ticket_detail', (), {'projectslug': self.project.slug, 'ticket_id': self.pk})
 
 class TicketOption(models.Model):
     name = models.CharField(max_length=100)
