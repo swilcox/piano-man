@@ -13,3 +13,13 @@ piano-man has the following dependencies:
     * django-filter
 
 The piano-man mailing list is available `here <http://groups.google.com/group/piano-man-dev>`_.
+
+swilcox fork goals:
+
+    * refactor things so that Projects can have a wiki and tickets and repo
+    * make the wiki so that it's actually just a code repo as well
+    * provide wiki markup types (creole, textile, etc...) to other fields
+    * possibly create a crude conversion from bugzilla
+    * allow/handle image and binary attachments
+    * improve/change style(s)
+    * finish/fix anything not yet working from the original
