@@ -5,12 +5,12 @@ from django.core.urlresolvers import reverse
 from django.db import models
 
 from backstage.utils import cached_attribute
-from django_vcs.models import CodeRepository
 
 from tickets.managers import TicketManager
+from projects.models import Project
 
 class Ticket(models.Model):
-    repo = models.ForeignKey(CodeRepository, related_name="tickets")
+    project = models.ForeignKey(Project, related_name="tickets")
     creator = models.ForeignKey(User)
     created_at = models.DateTimeField(default=datetime.datetime.now)
     closed = models.BooleanField(default=False)
@@ -25,11 +25,11 @@ class Ticket(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('ticket_detail', (), {'slug': self.repo.slug, 'ticket_id': self.pk})
+        return ('ticket_detail', (), {'slug': self.project.slug, 'ticket_id': self.pk})
 
 class TicketOption(models.Model):
     name = models.CharField(max_length=100)
-    repo = models.ForeignKey(CodeRepository)
+    project = models.ForeignKey(Project)
 
     def __unicode__(self):
         return self.name
@@ -106,13 +106,13 @@ class TicketChangeItem(models.Model):
 
 
 class TicketReport(models.Model):
-    repo = models.ForeignKey(CodeRepository, related_name='reports')
+    project = models.ForeignKey(Project, related_name='reports')
     name = models.CharField(max_length=100)
     query_string = models.CharField(max_length=255)
 
     def get_absolute_url(self):
         return "%s?%s" % (
-            reverse('ticket_list', kwargs={'slug': self.repo.slug}),
+            reverse('ticket_list', kwargs={'slug': self.project.slug}),
             self.query_string
         )
 
@@ -126,7 +126,7 @@ class TicketAttachment(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('ticket_attachment', (), {
-            'slug': self.ticket.repo.slug,
+            'slug': self.ticket.project.slug,
             'ticket_id': self.ticket.pk,
             'attachment_id': self.pk
         })

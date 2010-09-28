@@ -8,13 +8,13 @@
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}media/css/charts.css" media="screen" />
 {% endblock %}
 
-{% block page_title %}Ticket charts for {{ repo.name }}{% endblock %}
+{% block page_title %}Ticket charts for {{ project.name }}{% endblock %}
 
 {% block content %}
     {% for option, results in data.iteritems %}
         <div class="grid_4">
             <h4>
-                <a href="{% url ticket_option_chart slug=repo.slug option=option %}">
+                <a href="{% url ticket_option_chart slug=project.slug option=option %}">
                     Tickets by {{ option }}
                 </a>
             </h4>

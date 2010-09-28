@@ -16,14 +16,14 @@ class TicketChoiceFilter(MultipleChoiceFilter):
         return qs.filter(q).distinct()
 
 
-def filter_for_repo(repo, exclude=None):
+def filter_for_project(project, exclude=None):
     filters = {}
     filters['Meta'] = type('Meta', (object,), {'model': Ticket, 'fields': []})
     filters['closed'] = MultipleChoiceFilter(
         label='Status', choices=[(0, 'open',), (1, 'closed')],
         widget=CheckboxSelectMultiple, initial=[0]
     )
-    for option in repo.ticketoption_set.all():
+    for option in project.ticketoption_set.all():
         if exclude is None or (option.name not in exclude):
             filters[option.name] = TicketChoiceFilter(
                 choices=[(o.id, o.text) for o in option.choices.all()],

@@ -50,11 +50,11 @@ class TicketDetailForm(forms.Form):
                 )
                 ticket.closed = self.cleaned_data['closed']
 
-def get_ticket_form(repo, edit=False):
+def get_ticket_form(project, edit=False):
     fields = SortedDict()
     if edit:
         fields['comment'] = forms.CharField(widget=forms.Textarea, required=False)
-    for option in TicketOption.objects.filter(repo=repo):
+    for option in TicketOption.objects.filter(project=project):
         fields[option.name] = forms.ChoiceField(
             choices=[('', 'None')]+[(o.id, o.text) for o in option.choices.all()],
             required=False
