@@ -1,7 +1,7 @@
 <ul class="chartlist">
     {% for choice, count in data %}
         <li>
-            <a href="{% url ticket_list slug=project.slug %}?{{ request.GET.urlencode }}{% if request.GET %}&{% endif %}{{ option }}={{ choice }}">
+            <a href="{% url ticket_list projectslug=project.slug %}?{{ request.GET.urlencode }}{% if request.GET %}&{% endif %}{{ option }}={{ choice }}">
                 {{ choice }}
             </a>
             <span class="count">{{ count }}</span>

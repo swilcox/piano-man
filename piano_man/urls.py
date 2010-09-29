@@ -6,21 +6,12 @@ from tickets.urls import ticket_urls
 
 admin.autodiscover()
 
-"""
-repo_urls = patterns('',
-    url(r'^timeline/$', 'timeline.views.timeline', name='timeline'),
-    url(r'^tickets/', include(ticket_urls)),
-    url(r'^commit/(?P<commit_id>.*)/$', 'django_vcs.views.commit_detail', name='commit_detail'),
-    url(r'^browser/(?P<path>.*)$', 'django_vcs.views.code_browser', name='code_browser'),
-)
-"""
-
 project_urls = patterns('',
     url(r'^timeline/$', 'timeline.views.timeline', name='timeline'),
     url(r'^tickets/', include(ticket_urls)),
     url(r'^commit/(?P<commit_id>.*)/$', 'projects.views.commit_detail', name='commit_detail'),
     url(r'^browser/(?P<path>.*)$', 'projects.views.code_browser', name='code_browser'),
-    url(r'^wiki/(?P<path>.*)$', 'projects.views.wiki_page', name='wiki_page'),
+    url(r'^wiki/(?P<path>.*)$', 'wikis.views.wiki_page', name='wiki_page'),
     url(r'^$','projects.views.project',name='project'),
 )
 

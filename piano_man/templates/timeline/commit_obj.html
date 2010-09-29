@@ -6,7 +6,7 @@
         {{ item.canonical_date.time|time:"H:i" }}
     </td>
     <td>
-        <a href="{% url commit_detail projectslug=repo.slug commit_id=item.commit_id %}">
+        <a href="{% url commit_detail projectslug=project.slug commit_id=item.commit_id %}">
             {{ item.commit_id }} -- {{ item.message|truncatewords:40 }}
         </a>
     </td>

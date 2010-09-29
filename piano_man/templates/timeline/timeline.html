@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ MEDIA_URL }}media/css/timeline.css" type="text/css" media="screen" />
 {% endblock %}
 
+{% block page_title %}Timeline for {{ project.name }}{% endblock %}
+
 {% block content %}
     {% regroup items by canonical_date.date as items %}
     {% for date in items %}
@@ -15,7 +17,7 @@
             <h3>{{ date.grouper }}</h3>
             <table>
                 {% for item in date.list %}
-                    {% timeline_item item repo MEDIA_URL %}
+                    {% timeline_item item project MEDIA_URL %}
                 {% endfor %}
             </table>
         </div>

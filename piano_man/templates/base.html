@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>{% block title %}Piano-Man: Riffing on Code{% endblock %}</title>
+        <title>{% block title %}Piano-Man{% endblock %}</title>
         {% block extra_head %}{% endblock %}
         <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}media/css/reset.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}media/css/text.css" media="screen" />
@@ -21,7 +21,7 @@
         <div class="container_16">
             <div class="grid_16">
                 <h1 id="branding">
-                    <a href="{% url project_list %}">Piano Man</a>
+                    <a href="{% url project_list %}">Piano Man</a>{% if project %} : <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>{% endif %}
                 </h1>
             </div>
             <div class="clear"></div>
@@ -50,6 +50,16 @@
                 {% block content %}{% endblock %}
             </div>
             <div class="clear"></div>
+            {% block extra-content %}{% endblock %}
+			<div class="grid_16" id="site_info">
+				<div class="box">
+					<p>footer info for Piano-Man will go here...reference credits etc...</p>
+				</div>
+			</div>
+			<div class="clear"></div>
         </div>
+		<script type="text/javascript" src="{{ MEDIA_URL }}media/js/mootools-1.2.1-core.js"></script>
+		<script type="text/javascript" src="{{ MEDIA_URL }}media/js/mootools-1.2-more.js"></script>
+		<script type="text/javascript" src="{{ MEDIA_URL }}media/js/mootools-fluid16-autoselect.js"></script>
     </body>
 </html>

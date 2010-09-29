@@ -321,8 +321,7 @@ fieldset.login p {
 fieldset p label {
 	width:98%;
 }
-fieldset p input,
-fieldset p textarea {
+fieldset p input {
 	width:98%;
 }
 fieldset p select {
@@ -395,8 +394,8 @@ input.search.button {
 	margin-bottom:.5em;
 }
 .article a.image {
-	float:left;
-	margin:3px 10px 3px 0;
+	float:left; 
+	margin:3px 10px 3px 0; 
 	padding:4px;
 	border:1px solid #bbb;
 	background:#fff;
@@ -405,7 +404,7 @@ input.search.button {
 	border:1px solid #666;
 }
 .article a.image img {
-	float:left;
+	float:left; 
 }
 .article p.meta {
 	color:#666;
@@ -472,11 +471,11 @@ input.search.button {
 
 /* Mootools Kwicks
 ----------------------------------------------- */
-#kwick-box {
+#kwick-box { 
 	padding:0;
 	overflow:hidden;
 }
-#kwick-box h2 {
+#kwick-box h2 { 
 	margin:0;
 }
 #kwick {

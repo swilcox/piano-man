@@ -1,5 +1,24 @@
 {% extends "base.html" %}
 
-{% block content %}
-    Project template...
+{% block page_title %}{{ project.name }}{% endblock %}
+
+{% block extra-content %}
+    <div class="grid_4">
+        <div class="box">
+              <h2><a href="#" id="toggle-description">{{ project.name }}</a></h2>
+              <div class="block" id="description">
+                  <p>{{ project.description }}</p>
+                  <p>blah...blah...blah...</p>
+              </div>
+        </div>
+    </div>
+    <div class="grid_4">
+        <div class="box">
+            <h2><a href="#">Tickets</a></h2>
+            <div class="block" id="tickets">
+                <p>Ticket Summary or Detail info goes here...</p>
+            </div>
+        </div>
+    </div>
+    <div class="clear"> </div>
 {% endblock %}

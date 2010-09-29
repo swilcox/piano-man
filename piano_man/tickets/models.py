@@ -112,7 +112,7 @@ class TicketReport(models.Model):
 
     def get_absolute_url(self):
         return "%s?%s" % (
-            reverse('ticket_list', kwargs={'slug': self.project.slug}),
+            reverse('ticket_list', kwargs={'projectslug': self.project.slug}),
             self.query_string
         )
 
@@ -126,7 +126,7 @@ class TicketAttachment(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('ticket_attachment', (), {
-            'slug': self.ticket.project.slug,
+            'projectslug': self.ticket.project.slug,
             'ticket_id': self.ticket.pk,
             'attachment_id': self.pk
         })
