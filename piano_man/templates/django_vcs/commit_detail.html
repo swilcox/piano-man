@@ -3,7 +3,7 @@
 {% load udiff %}
 
 {% block title %}
-    Details about commit {{ commit.commit_id }} on {{ repo.name }}
+    Details about commit {{ commit.commit_id }} on {{ project.name }}
 {% endblock %}
 
 {% block extra_head %}
@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block page_title %}
-    Details about commit {{ commit.commit_id }} on {{ repo.name }}
+    Details about commit {{ commit.commit_id }} on {{ project.name }}
 {% endblock %}
 
 {% block content %}
@@ -34,9 +34,9 @@
                 <ul>
                     {% for file in commit.files %}
                         <li>
-                            <a href="{% url code_browser slug=repo.slug path=file %}?rev={{ commit.commit_id }}">
+                            <a href="{% url code_browser projectslug=project.slug path=file %}?rev={{ commit.commit_id }}">
                                 {{ file }}
-                            <a/>
+                            </a>
                         </li>
                     {% endfor %}
                 </ul>
