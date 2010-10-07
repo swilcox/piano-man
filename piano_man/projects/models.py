@@ -12,7 +12,7 @@ class Project(models.Model):
     repo = models.ForeignKey(CodeRepository,related_name='project_code',blank=True,null=True)
     wiki = models.ForeignKey(VCSWiki,related_name='project_wikis',blank=True,null=True)
     upload_location = models.CharField(max_length=255,blank=True)
-    config_options = jsonfield.JSONField()
+    config_options = jsonfield.JSONField(blank=True,null=True)
 
     def __unicode__(self):
         return self.name
