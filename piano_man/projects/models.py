@@ -18,3 +18,21 @@ class Project(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('projects.views.project', (self.slug,), {})
+
+
+class AvailableOption(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __unicode__(self):
+        return self.name
+
+
+class ProjectOptionSelection(models.Model):
+    project = models.ForeignKey(Project,related_name='configuration')
+    option = models.ForeignKey(AvailableOption,related_name='selection')
+    value = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return str(self.option) + str(self.value)
+

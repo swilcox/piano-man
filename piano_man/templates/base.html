@@ -21,11 +21,13 @@
         <div class="container_16">
             <div class="grid_16">
                 <h1 id="branding">
+                   {% block branding %}
                     <a href="{% url project_list %}">Piano Man</a>{% if project %} : <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>{% endif %}
+                   {% endblock %}
                 </h1>
             </div>
             <div class="clear"></div>
-            <div class="grid_16">
+            <div class="grid_16 navbar">
                 <ul class="nav main">
                     {% if project %}
                         {% nav_bar_urls project 0 %}
@@ -53,7 +55,7 @@
             {% block extra-content %}{% endblock %}
 			<div class="grid_16" id="site_info">
 				<div class="box">
-					<p>footer info for Piano-Man will go here...reference credits etc...</p>
+					<p><a href="mailto:steven.wilcox@lifeway.com">Steven Wilcox's</a> <a href="http://github.com/swilcox/piano-man">fork of Piano-Man</a> | powered by <a href="http://djangoproject.org">Django</a> | <a href="http://www.python.org">Python</a></p>
 				</div>
 			</div>
 			<div class="clear"></div>

@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
+{% load timeline %}
+{% load markup %}
+
 {% block page_title %}{{ project.name }}{% endblock %}
 
 {% block extra-content %}
@@ -7,16 +10,60 @@
         <div class="box">
               <h2><a href="#" id="toggle-description">{{ project.name }}</a></h2>
               <div class="block" id="description">
-                  <p>{{ project.description }}</p>
-                  <p>blah...blah...blah...</p>
+                  <div class="project_description">{{ project.description }}</div>
               </div>
         </div>
     </div>
-    <div class="grid_4">
+    <div class="grid_6">
         <div class="box">
             <h2><a href="#">Tickets</a></h2>
             <div class="block" id="tickets">
-                <p>Ticket Summary or Detail info goes here...</p>
+                <table>
+                    <tr>
+                        <th>#</th>
+                        <th>Creator</th>
+                        <th>Created At</th>
+                        <th>Title</th>
+                    </tr>
+                    {% for ticket in project.tickets.all %}
+                        <tr>
+                            <td>
+                                <a href="{{ ticket.get_absolute_url }}">{{ ticket.id }}</a>
+                            </td>
+                            <td>
+                                {{ ticket.creator }}
+                            </td>
+                            <td>
+                                {{ ticket.created_at|date:"m/d/Y h:iA" }}
+                            </td>
+                            <td>
+                                {{ ticket.title }}
+                            </td>
+                        <tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="grid_6">
+        <div class="box">
+            <h2><a href="#">Commits</a></h2>
+            <div class="block" id="commits">
+                <table>
+                {% for item in project.repo.get_recent_commits %}
+                    {% timeline_item item project MEDIA_URL %}
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"> </div>
+    <div class="grid_16">
+        <div class="box">
+            <div class="block" id="source">
+
+                {{ readme|markup:readme_markup }}
             </div>
         </div>
     </div>

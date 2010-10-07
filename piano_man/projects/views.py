@@ -27,7 +27,14 @@ import os
 def project(request, projectslug):
     print projectslug
     p = get_object_or_404(Project,slug=projectslug)
-    return render_to_response('projects/project.html',{'project':p},context_instance=RequestContext(request))
+    try:
+        readme = p.repo.get_file_contents('README.rst')
+        readme_markup = 'rst'
+    except:
+        readme = ''
+        readme_markup = 'txt'
+
+    return render_to_response('projects/project.html',{'project':p,'readme':readme,'readme_markup':readme_markup},context_instance=RequestContext(request))
 
 
 def project_list(request,*args,**kwargs):

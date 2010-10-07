@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
+{% load markup %}
+
+{% block branding %}
+ <a href="{% url project_list %}">Piano Man</a>{% if project %} : <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> Wiki{% endif %}
+{% endblock %}
+
+
 {% block content %}
-    Wiki Page Template...
+    <div class="wiki_page">
+    {{ content|markup:style }}
+    </div>
 {% endblock %}

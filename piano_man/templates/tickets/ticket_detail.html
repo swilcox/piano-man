@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load markup %}
+
 {% block title %}Details for ticket #{{ ticket.pk }} on {{ project.name }}{% endblock %}
 
 {% block page_title %}Ticket #{{ ticket.pk }}{% endblock %}
@@ -25,7 +27,7 @@
                 {% endif %}
             {% endfor %}
         </table>
-        <p>{{ ticket.description }}</p>
+        <p>{{ ticket.description|markup:'creole' }}</p>
     </div>
     <div class="box">
         <h3>Attachments</h3>

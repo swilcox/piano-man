@@ -9,7 +9,7 @@ ul.nav,
 ul.nav * { margin:0;padding:0;}
 ul.nav {
   position:relative;
-  background:#666;
+  background:#678;
   max-width:100%;
   height:2.5em;
   }
@@ -38,7 +38,7 @@ ul.nav li ul li {
 }
 ul.nav li a {
 	color:#fff;
-	background:#666;
+	background:#678;
 	font-weight:bold;
 	text-decoration:none;
 	display:block;
@@ -61,30 +61,32 @@ ul.nav li ul li a {
 ul.nav li:hover a,
 ul.nav li a:hover,
 ul.nav li a:focus {color:#000; background:#ccc;}
-ul.nav li a:active {color:#666; background:#fff;}
+ul.nav li a:active {color:#678; background:#fff;}
 ul.nav li:hover ul {left:0;z-index:10}
 ul.nav li ul,
 ul.nav li {background:#ccc !important}
-ul.nav li:hover ul li a {color:#444;}
+ul.nav li:hover ul li a {color:#456;}
 ul.nav li:hover ul li a:hover {color:#000; background:#fff;}
-ul.nav li:hover ul li a:active {color:#666; background:#fff;}
+ul.nav li:hover ul li a:active {color:#678; background:#fff;}
 
-ul.nav li.current a {color:#666; background:#fff; cursor:default; font-weight:bold;}
+ul.nav li.current a {color:#678; background:#fff; cursor:default; font-weight:bold;}
 ul.nav li.current ul {left:0;z-index:5}
 ul.nav li.current ul,
 ul.nav li.current {background:#ccc !important}
-ul.nav li.current ul li a {color:#444; background:#ccc; font-weight:normal;}
+ul.nav li.current ul li a {color:#456; background:#ccc; font-weight:normal;}
 ul.nav li.current ul li a:hover {color:#000; background:#fff;}
 ul.nav li ul li.current a,
 ul.nav li ul li.current a:hover,
-ul.nav li.current:hover ul li a:active {color:#666; background:#fff;}
+ul.nav li.current:hover ul li a:active {color:#678; background:#fff;}
+
 
 
 /* navigation (vertical subnavigation)
 ----------------------------------------------- */
 ul.nav {
-  background:#666;
+  background:#678;
 }
+
 ul.main li {
   position:relative;
   top:0;
@@ -101,7 +103,7 @@ ul.main li a {
 	line-height:2.5em;
 	border:0;
 	color:#fff;
-	background:#666;
+	background:#678;
 }
 ul.main li ul li a {
   width:12em;
@@ -109,22 +111,29 @@ ul.main li ul li a {
   height:2em;
   text-align:left;
   color:#fff;
-  border-top:1px solid #444;
-  background:#444;
+  border-top:1px solid #456;
+  background:#456;
 }
 ul.main li a:focus {color:#fff; background:#666;}
 ul.main li ul li a:hover {
   color:#fff;
-  background:#555;
+  background:#567;
 }
 ul.main li:hover a {
   color:#fff;
-  background:#555;
+  background:#567;
 }
 ul.main li:hover ul li a {color:#fff;}
-ul.main li:hover ul li a:hover {color:#fff; background:#444;}
-ul.main li:hover a:active {background:#444;}
-ul.main li:hover ul li a:active {color:#fff; background:#222;}
+ul.main li:hover ul li a:hover {color:#fff; background:#456;}
+ul.main li:hover a:active {background:#456;}
+ul.main li:hover ul li a:active {color:#fff; background:#234;}
+
+.navbar {
+    padding-bottom: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    background: #678;
+}
 
 
 /* secondary list
@@ -159,9 +168,9 @@ ul.nav li.secondary span.status span {
 }
 ul.nav li.secondary:hover a {
 	color:#fff;
-	background:#666;
+	background:#678;
 }
 ul.nav li.secondary:hover a:hover {
-	background:#555;
+	background:#567;
 }
-ul.nav li.secondary:hover a:active {background:#444;}
+ul.nav li.secondary:hover a:active {background:#456;}
