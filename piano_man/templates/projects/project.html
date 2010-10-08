@@ -25,7 +25,7 @@
                         <th>Created At</th>
                         <th>Title</th>
                     </tr>
-                    {% for ticket in project.tickets.all %}
+                    {% for ticket in project.tickets.open %}
                         <tr>
                             <td>
                                 <a href="{{ ticket.get_absolute_url }}">{{ ticket.id }}</a>
