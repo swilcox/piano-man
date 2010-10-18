@@ -17,6 +17,7 @@ project_urls = patterns('',
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
     url(r'^$','projects.views.project_list',name='project_list'),
     url(r'^(?P<projectslug>[\w-]+)/', include(project_urls)),
 )

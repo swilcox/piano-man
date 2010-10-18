@@ -15,7 +15,7 @@ class TicketDetailForm(forms.Form):
         if not new:
             changes = []
         for option in set(self.fields) - self.extra_fields:
-            option = TicketOption.objects.get(name=option)
+            option = TicketOption.objects.get(name=option, project=ticket.project)
             choice = self.cleaned_data[option.name]
             if choice:
                 choice = TicketOptionChoice.objects.get(pk=choice, option=option)

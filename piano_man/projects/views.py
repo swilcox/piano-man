@@ -3,27 +3,10 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from models import Project
-
-
-# Create your views here.
-#need a view showing all projects
-#  - links to all open issues
-#  - links to all issues open/assigned to current user
-#  - links to default/general wiki
-#  - links to docs
-#  - search over "everything"
-#  - overview of stats
-#  - dashboard
-
-#need a project view...showing:
-#  - short descrption
-#  - number of open issues
-#  - versions
-#  - components
-#  - links to: docs, wiki, open issues, all issues, new issue, project search...
-from django_vcs.models import CodeRepository
 import os
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def project(request, projectslug):
     print projectslug
     p = get_object_or_404(Project,slug=projectslug)
@@ -37,11 +20,12 @@ def project(request, projectslug):
     return render_to_response('projects/project.html',{'project':p,'readme':readme,'readme_markup':readme_markup},context_instance=RequestContext(request))
 
 
+@login_required
 def project_list(request,*args,**kwargs):
     projects = Project.objects.all()
     return render_to_response('projects/project_list.html',{'projects':projects},context_instance=RequestContext(request))
 
-
+@login_required
 def recent_commits(request, projectslug):
     project = get_object_or_404(Project,slug=projectslug)
     repo = project.repo
@@ -52,6 +36,7 @@ def recent_commits(request, projectslug):
         'django_vcs/recent_commits.html',
     ], {'repo': repo, 'commits': commits}, context_instance=RequestContext(request))
 
+@login_required
 def code_browser(request, projectslug, path, **kwargs):
     project = get_object_or_404(Project,slug=projectslug)
     repo = project.repo
@@ -75,6 +60,7 @@ def code_browser(request, projectslug, path, **kwargs):
         'django_vcs/file_contents.html',
     ], context, context_instance=RequestContext(request))
 
+@login_required
 def commit_detail(request, projectslug, commit_id):
     project = get_object_or_404(Project, slug=projectslug)
     repo = project.repo
