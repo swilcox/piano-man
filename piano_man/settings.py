@@ -92,7 +92,7 @@ ABSOLUTE_URL_OVERRIDES = {
     'django_vcs.coderepository': repo_get_absolute_url,
 }
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -105,7 +105,8 @@ INSTALLED_APPS = (
     'tickets',
     'timeline',
     'backstage',
-)
+    'sentry.client',
+]
 
 try:
     from local_settings import *
